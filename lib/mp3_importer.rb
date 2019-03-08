@@ -1,3 +1,7 @@
+
+
+
+
 require "pry"
 
 class MP3Importer
@@ -9,7 +13,7 @@ class MP3Importer
   def files
     mp3s= Dir.glob("**/*.mp3")
     mp3s.map do |element|
-      element.slice! "spec/fixtures/mp3s/"
+      element.slice!("spec/fixtures/mp3s/")
     end
     mp3s
   end
@@ -20,3 +24,4 @@ class MP3Importer
     end
   end
 end
+ 

@@ -11,25 +11,24 @@ class Song
     artist_string = array[0]
     
     #create song
-    new_song = Song.new(song_string)
+    new_song = self.new(song_string)
     
-    #find out if artist already exists, if not than create said artist
+    #find out if artist already exists, if not then create said artist
     new_artist = Artist.find_or_create_by_name(artist_string)
+    
+     #this this song belongs to this instance of an artist
+    new_song.artist = new_artist 
     
     #save then pushes this freshly creates instance into the @@all of Artist
     new_artist.save
     
     #for artist to keep track it's songs [] << @song
     new_artist.add_song(new_song)
-  
-    #this this song belongs to this instance of an artist
-    new_song.artist = new_artist 
     
     #return song 
     new_song
   end 
 end 
-
 #from ask a question 
 # Song#artist_name=(name)
 # This method will do two things. Both of these things will involve collaboration with the Artist class:
